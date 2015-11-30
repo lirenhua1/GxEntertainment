@@ -2,9 +2,11 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-<
+    android:layout_height="match_parent"
+    android:background="#fff">
+
     <RelativeLayout
+        android:id="@+id/rl_head"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:background="#4a72de">
@@ -19,7 +21,35 @@
 
     </RelativeLayout>
 
+    <com.handmark.pulltorefresh.library.PullToRefreshScrollView
+        android:id="@+id/ptr_scrollview"
+        xmlns:ptr="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/tv_line"
+        android:layout_below="@+id/rl_head"
+        android:layout_marginBottom="5dp"
+        ptr:ptrDrawable="@drawable/ic_pulltorefresh_arrow"
+        ptr:ptrAnimationStyle="flip">
+        <com.lee.custom.HeadBannerView
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+
+            >
+
+        </com.lee.custom.HeadBannerView>
+
+    </com.handmark.pulltorefresh.library.PullToRefreshScrollView>
+
+    <TextView
+        android:id="@+id/tv_line"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_above="@+id/fl_layout"
+        android:background="#e11717" />
+
     <FrameLayout
+        android:id="@+id/fl_layout"
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:layout_alignParentBottom="true"
@@ -50,11 +80,13 @@
                 android:drawableTop="@drawable/foot_menu_1"
                 android:gravity="center"
                 android:text="分类" />
+
             <RadioButton
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                
-                />
+                android:layout_weight="1"
+                android:button="@null" />
+
             <RadioButton
                 android:id="@+id/rbtn_shop"
                 android:layout_width="0dp"
@@ -77,10 +109,12 @@
         </RadioGroup>
 
     </FrameLayout>
+
     <ImageView
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:src="@drawable/foot_menu_3"
+        android:layout_alignParentBottom="true"
         android:layout_centerInParent="true"
-        android:layout_alignParentBottom="true"/>
+        android:src="@drawable/foot_menu_3" />
+
 </RelativeLayout>
